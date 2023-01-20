@@ -3,6 +3,7 @@
     "name": "match-frontend",
     "slug": "match-frontend",
     "version": "1.0.0",
+    "entryPoint": "./src",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
