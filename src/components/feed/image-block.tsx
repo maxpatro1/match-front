@@ -1,15 +1,15 @@
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet } from 'react-native'
+
+import Block from 'src/ui/block'
 
 const ImageBlock = () => {
-  return <View style={styles.container}></View>
+  return <Block style={styles.container}></Block>
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom: 16,
-    borderRadius: 8,
-    backgroundColor: 'white'
+    marginBottom: 16
   }
 })
 

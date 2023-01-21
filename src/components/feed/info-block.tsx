@@ -1,12 +1,13 @@
 import { AntDesign } from '@expo/vector-icons'
 import { StyleSheet, Text, View } from 'react-native'
 
+import Block from 'src/ui/block'
 import AverageRate from './average-rate'
 import Rate from './rate'
 
 const InfoBlock = () => {
   return (
-    <View style={styles.container}>
+    <Block style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.title}>Кремниевая долина</Text>
         <AverageRate rate={4.6} />
@@ -18,15 +19,13 @@ const InfoBlock = () => {
         <Text>367 Addison Ave, Palo Alto.</Text>
       </View>
       <Rate onRate={() => null} />
-    </View>
+    </Block>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    borderRadius: 8,
-    backgroundColor: 'white'
+    padding: 16
   },
   header: {
     marginBottom: 8,
