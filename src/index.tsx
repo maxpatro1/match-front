@@ -1,3 +1,4 @@
+import { AntDesign } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { NavigationContainer } from '@react-navigation/native'
 import { registerRootComponent } from 'expo'
@@ -8,10 +9,16 @@ import Profile from './screens/profile'
 
 const Tab = createBottomTabNavigator()
 
-const screens = [
-  { name: 'Feed', component: Feed },
-  { name: 'Collection', component: Collection },
-  { name: 'Profile', component: Profile }
+type Screen = {
+  name: string
+  component: () => JSX.Element
+  icon: React.ComponentProps<typeof AntDesign>['name']
+}
+
+const screens: Screen[] = [
+  { name: 'Feed', component: Feed, icon: 'picture' },
+  { name: 'Collection', component: Collection, icon: 'inbox' },
+  { name: 'Profile', component: Profile, icon: 'user' }
 ]
 
 const App = () => {
@@ -22,7 +29,16 @@ const App = () => {
         screenOptions={{ header: () => null }}
       >
         {screens.map((screen) => (
-          <Tab.Screen name={screen.name} component={screen.component} />
+          <Tab.Screen
+            key={screen.name}
+            name={screen.name}
+            component={screen.component}
+            options={{
+              tabBarIcon: ({ color }) => (
+                <AntDesign name={screen.icon} size={24} color={color} />
+              )
+            }}
+          />
         ))}
       </Tab.Navigator>
     </NavigationContainer>
