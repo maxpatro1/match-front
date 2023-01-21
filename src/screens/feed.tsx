@@ -1,14 +1,16 @@
 import { AntDesign } from '@expo/vector-icons'
+import { StatusBar } from 'expo-status-bar'
 import { useState } from 'react'
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 const rates = [1, 2, 3, 4, 5]
 
-const ImageFeed = () => {
+const Feed = () => {
   const [selectedRate, setSelectedRate] = useState(0)
 
   return (
     <View style={styles.container}>
+      <StatusBar style="auto" />
       <View style={styles.header}>
         <View style={styles.icon}>
           <AntDesign name="staro" size={32} color="black" />
@@ -54,7 +56,8 @@ const ImageFeed = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    padding: 16
   },
   icon: {
     marginRight: 8
@@ -75,7 +78,6 @@ const styles = StyleSheet.create({
     borderColor: 'black'
   },
   info: {
-    marginBottom: 16,
     padding: 16,
     borderWidth: 1,
     borderRadius: 16,
@@ -106,4 +108,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default ImageFeed
+export default Feed

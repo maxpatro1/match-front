@@ -1,24 +1,32 @@
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { NavigationContainer } from '@react-navigation/native'
 import { registerRootComponent } from 'expo'
-import { StatusBar } from 'expo-status-bar'
-import { StyleSheet, View } from 'react-native'
-import ImageFeed from './screens/image-feed'
+
+import Collection from './screens/collection'
+import Feed from './screens/feed'
+import Profile from './screens/profile'
+
+const Tab = createBottomTabNavigator()
+
+const screens = [
+  { name: 'Feed', component: Feed },
+  { name: 'Collection', component: Collection },
+  { name: 'Profile', component: Profile }
+]
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-      <ImageFeed />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName="Feed"
+        screenOptions={{ header: () => null }}
+      >
+        {screens.map((screen) => (
+          <Tab.Screen name={screen.name} component={screen.component} />
+        ))}
+      </Tab.Navigator>
+    </NavigationContainer>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    backgroundColor: '#fff'
-  }
-})
 
 export default registerRootComponent(App)
