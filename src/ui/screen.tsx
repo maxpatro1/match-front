@@ -1,14 +1,14 @@
-import { ReactNode } from 'react'
+import type { ViewProps } from 'react-native'
 import { StyleSheet, View } from 'react-native'
 
-type ScreenProps = {
-  children: ReactNode
-}
+const Screen = (props: ViewProps) => {
+  const { style, children, ...otherProps } = props
 
-const Screen = (props: ScreenProps) => {
-  const { children } = props
-
-  return <View style={styles.container}>{children}</View>
+  return (
+    <View style={[styles.container, style]} {...otherProps}>
+      {children}
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
