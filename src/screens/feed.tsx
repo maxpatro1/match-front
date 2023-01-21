@@ -7,7 +7,11 @@ const Feed = () => {
   return (
     <Screen>
       <Header />
-      <ImageBlock />
+      <ImageBlock
+        source={{
+          uri: 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/ama-dablam-mountain-peak-view-from-chola-pass-royalty-free-image-1623254695.jpg'
+        }}
+      />
       <InfoBlock />
     </Screen>
   )
