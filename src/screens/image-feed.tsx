@@ -35,7 +35,10 @@ const ImageFeed = () => {
         </View>
         <View style={styles.rate}>
           {rates.map((rate) => (
-            <TouchableWithoutFeedback onPress={() => setSelectedRate(rate)}>
+            <TouchableWithoutFeedback
+              key={rate}
+              onPress={() => setSelectedRate(rate)}
+            >
               {selectedRate >= rate ? (
                 <AntDesign name="star" size={32} color="black" />
               ) : (
