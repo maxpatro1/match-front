@@ -25,7 +25,7 @@ const Rate = (props: RateProps) => {
           <AntDesign
             name={selectedRate >= rate ? 'star' : 'staro'}
             size={32}
-            color="black"
+            color="yellow"
           />
         </TouchableWithoutFeedback>
       ))}
